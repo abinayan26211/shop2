@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="ta">
+<head>
+  <meta charset="UTF-8">
+  <title>Dress Matching AI</title>
+  <style>
+    body {
+      font-family: sans-serif;
+      background: #f2f2f2;
+      padding: 20px;
+      text-align: center;
+    }
+    .match-box {
+      background: #fff;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.2);
+      max-width: 400px;
+      margin: auto;
+    }
+    input {
+      padding: 10px;
+      margin: 10px;
+      width: 80%;
+    }
+    button {
+      padding: 10px 20px;
+      background: #4CAF50;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+    .result {
+      margin-top: 20px;
+      font-size: 18px;
+    }
+  </style>
+</head>
+<body>
+  <div class="match-box">
+    <h2>👗 Dress Matching AI</h2>
+    <input type="text" id="topColor" placeholder="Top color (e.g. red)">
+    <input type="text" id="bottomColor" placeholder="Bottom color (e.g. black)">
+    <button onclick="checkMatch()">Check Match</button>
+    <div class="result" id="result"></div>
+  </div>
+
+  <script>
+    function checkMatch() {
+      const top = document.getElementById("topColor").value.toLowerCase();
+      const bottom = document.getElementById("bottomColor").value.toLowerCase();
+      const result = document.getElementById("result");
+
+      // Simple color match logic
+      const goodCombos = {
+        red: ["black", "white", "blue"],
+        blue: ["white", "gray", "black"],
+        green: ["brown", "white"],
+        yellow: ["black", "blue"],
+        black: ["red", "white", "yellow"],
+        white: ["red", "blue", "green"]
+      };
+
+      let score = 50; // default
+
+      if (goodCombos[top] && goodCombos[top].includes(bottom)) {
+        score = 90;
+      } else if (top === bottom) {
+        score = 30;
+      }
+
+      result.innerHTML = `🎯 Match Score: <strong>${score}%</strong>`;
+    }
+  </script>
+</body>
+</html>
+

@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Login Page</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: url('https://wallpapers-clan.com/wp-content/uploads/2023/10/naruto-itachi-uchiha-with-red-eyes-desktop-wallpaper-preview.jpg') no-repeat center center fixed;
+      background-size: cover;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+    }
+
+    .login-container {
+      background: rgba(255, 255, 255, 0.9);
+      padding: 40px;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.2);
+      width: 300px;
+      text-align: center;
+    }
+
+    .login-btn, .toggle-btn, .signup-btn, .signup-toggle-btn, .guest-btn, .cancel-btn {
+      background-color: #4CAF50;
+      color: white;
+      border: none;
+      padding: 12px 20px;
+      font-size: 16px;
+      border-radius: 5px;
+      cursor: pointer;
+      width: 100%;
+      transition: background-color 0.3s;
+      margin-top: 10px;
+      text-decoration: none;
+      display: inline-block;
+    }
+
+    .login-btn:hover,
+    .toggle-btn:hover,
+    .signup-btn:hover,
+    .signup-toggle-btn:hover,
+    .guest-btn:hover,
+    .cancel-btn:hover {
+      background-color: #45a049;
+    }
+
+    .login-form,
+    .signup-form {
+      display: none;
+      margin-top: 20px;
+    }
+
+    input[type="text"],
+    input[type="password"],
+    input[type="email"] {
+      width: 100%;
+      padding: 10px;
+      margin: 10px 0;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+    }
+  </style>
+  <script>
+    function showLogin() {
+      document.querySelector('.login-form').style.display = 'block';
+      document.querySelector('.toggle-btn').style.display = 'none';
+    }
+
+    function hideLogin() {
+      document.querySelector('.login-form').style.display = 'none';
+      document.querySelector('.toggle-btn').style.display = 'inline-block';
+    }
+
+    function showSignup() {
+      document.querySelector('.signup-form').style.display = 'block';
+      document.querySelector('.signup-toggle-btn').style.display = 'none';
+    }
+
+    function hideSignup() {
+      document.querySelector('.signup-form').style.display = 'none';
+      document.querySelector('.signup-toggle-btn').style.display = 'inline-block';
+    }
+  </script>
+</head>
+<body>
+  <div class="login-container">
+    <h2>Welcome</h2>
+
+    <!-- Toggle Login Form -->
+    <button class="toggle-btn" onclick="showLogin()">🔓 Login</button>
+
+    <!-- Login Form -->
+    <div class="login-form">
+      <form action="dashboard.html">
+        <input type="text" placeholder="Username" required><br>
+        <input type="password" placeholder="Password" required><br>
+        <button class="login-btn" type="submit">Submit</button>
+        <button type="button" class="cancel-btn" onclick="hideLogin()">Cancel</button>
+      </form>
+    </div>
+
+    <!-- Toggle Signup Form -->
+    <button class="signup-toggle-btn" onclick="showSignup()">📝 Signup</button>
+
+    <!-- Signup Form -->
+    <div class="signup-form">
+      <form action="welcome.html">
+        <input type="text" placeholder="Username" required><br>
+        <input type="email" placeholder="Email" required><br>
+        <input type="password" placeholder="Password" required><br>
+        <button class="signup-btn" type="submit">Register</button>
+        <button type="button" class="cancel-btn" onclick="hideSignup()">Cancel</button>
+      </form>
+    </div>
+
+    <!-- Guest Button -->
+    <a href="New file.html" class="guest-btn">👤 Guest</a>
+  </div>
+</body>
+</html>
